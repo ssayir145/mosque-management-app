@@ -50,7 +50,7 @@ export function SettingsForm() {
     <div className="space-y-6">
       <form onSubmit={handleDetailsSubmit} className="card space-y-4 p-6">
         <h3 className="font-display text-lg font-semibold text-ink-900">Mosque Details</h3>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label className="label">Mosque Name</label>
             <input className="input" required value={mosqueName} onChange={(e) => setMosqueName(e.target.value)} />

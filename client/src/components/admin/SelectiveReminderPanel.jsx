@@ -37,7 +37,7 @@ export function SelectiveReminderPanel() {
 
   return (
     <div className="space-y-5">
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className="label">Pending Amount ≥</label>
           <input

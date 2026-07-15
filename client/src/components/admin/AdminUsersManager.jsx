@@ -38,7 +38,7 @@ export function AdminUsersManager() {
     <div className="space-y-6">
       <form onSubmit={handleCreate} className="card space-y-4 p-6">
         <h3 className="font-display text-lg font-semibold text-ink-900">Add Admin / Caretaker User</h3>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label className="label">Full Name</label>
             <input className="input" value={fullName} onChange={(e) => setFullName(e.target.value)} />

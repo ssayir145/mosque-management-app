@@ -51,7 +51,7 @@ export function ProfileForm() {
   };
 
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
       <form onSubmit={handleProfileSubmit} className="card space-y-4 p-6">
         <h3 className="font-display text-lg font-semibold text-ink-900">Household Information</h3>
         <div>

@@ -17,7 +17,7 @@ export function OverviewCards() {
   ];
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {cards.map((c) => (
         <div key={c.label} className="card p-5">
           <p className="text-xs uppercase tracking-wide text-ink-400">{c.label}</p>

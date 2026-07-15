@@ -9,7 +9,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-10">
-      <section className="grid gap-6 lg:grid-cols-2">
+      <section className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <PrayerTimesWidget />
         <WeeklyPrayerSchedule />
       </section>
