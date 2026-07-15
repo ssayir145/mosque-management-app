@@ -156,8 +156,8 @@ CREATE TABLE IF NOT EXISTS settings (
 INSERT INTO settings (id, mosque_name, address, phone, email, message_templates)
 VALUES (
   1,
-  'Al-Noor Mosque',
-  '123 Community Lane, Springfield',
+  'Masjid Abu Bakr',
+  'Effendi Bagh, Sanat Nagar, Srinagar, Jammu and Kashmir 190005',
   '+10000000000',
   'info@example.com',
   '{
