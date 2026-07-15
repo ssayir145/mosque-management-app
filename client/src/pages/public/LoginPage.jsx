@@ -57,12 +57,12 @@ export default function LoginPage() {
 
   return (
     <div className="mx-auto flex max-w-md flex-col gap-6">
-      <div className="flex justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-2">
         {Object.entries(ROLE_CONFIG).map(([key, cfg]) => (
           <Link
             key={key}
             to={`/login/${key}`}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
+            className={`rounded-full px-3 py-1.5 text-sm font-medium transition sm:px-4 ${
               key === role ? 'bg-sage-600 text-white' : 'bg-white text-ink-600 ring-1 ring-ink-200 hover:bg-sage-50'
             }`}
           >
@@ -71,7 +71,7 @@ export default function LoginPage() {
         ))}
       </div>
 
-      <form onSubmit={handleSubmit} className="card geo-border space-y-4 p-8">
+      <form onSubmit={handleSubmit} className="card geo-border space-y-4 p-6 sm:p-8">
         <h2 className="text-center font-display text-2xl font-bold text-ink-900">{config.label} Login</h2>
         <div>
           <label className="label">{config.identifierLabel}</label>
