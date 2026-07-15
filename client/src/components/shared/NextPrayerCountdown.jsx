@@ -55,14 +55,14 @@ export function NextPrayerCountdown({ today, tomorrow }) {
   const timeLabel = today?.[next.key] ? formatTime12h(today[next.key]) : formatTime12h(tomorrow?.[next.key]);
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-sage-600 px-5 py-4 text-white shadow-sm">
+    <div className="flex flex-col items-center gap-1 rounded-xl bg-sage-600 px-4 py-4 text-center text-white shadow-sm sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-5 sm:text-left">
       <div>
         <p className="text-xs uppercase tracking-wide text-sage-100">Next Prayer</p>
-        <p className="font-display text-xl font-bold">
+        <p className="font-display text-lg font-bold sm:text-xl">
           {next.label} · {timeLabel}
         </p>
       </div>
-      <div className="font-mono text-2xl font-semibold tabular-nums">
+      <div className="font-mono text-3xl font-semibold tabular-nums sm:text-2xl">
         {String(h).padStart(2, '0')}:{String(m).padStart(2, '0')}:{String(s).padStart(2, '0')}
       </div>
     </div>
