@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-ink-900 font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(79, 127, 94, 0.06), transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(211, 144, 31, 0.06), transparent 40%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Reusable geometric border motif for cards / headers, echoed across the app */
+  .geo-border {
+    position: relative;
+  }
+  .geo-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, theme('colors.gold.400'), theme('colors.sage.500') 50%, theme('colors.gold.400'));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .card {
+    @apply bg-white/90 rounded-2xl shadow-sm border border-sage-100 backdrop-blur-sm;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition
+           focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-sage-600 text-white hover:bg-sage-700 focus:ring-sage-500 shadow-sm;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-sage-700 border border-sage-300 hover:bg-sage-50 focus:ring-sage-400;
+  }
+  .btn-gold {
+    @apply btn bg-gold-500 text-ink-950 hover:bg-gold-600 focus:ring-gold-400 shadow-sm;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-ink-200 bg-white px-3 py-2 text-sm
+           focus:outline-none focus:ring-2 focus:ring-sage-400 focus:border-sage-400;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink-700 mb-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #print-root, #print-root * {
+    visibility: visible;
+  }
+  #print-root {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

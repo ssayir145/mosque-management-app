@@ -1,0 +1,175 @@
+[build]
+  command = "npm run build:client"
+  publish = "client/dist"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[functions."scheduled-monthly-charge"]
+  schedule = "0 0 1 * *"
+
+[dev]
+  command = "cd client && npm run dev"
+  targetPort = 5173
+  port = 8888
+  publish = "client/dist"
+  autoLaunch = false
+
+# --- API redirects (most specific first; functions read event.httpMethod) ---
+
+[[redirects]]
+  from = "/api/auth/login/resident"
+  to = "/.netlify/functions/auth-login-resident"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/login/admin"
+  to = "/.netlify/functions/auth-login-admin"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/login/caretaker"
+  to = "/.netlify/functions/auth-login-caretaker"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/me"
+  to = "/.netlify/functions/auth-me"
+  status = 200
+
+[[redirects]]
+  from = "/api/households/me/password"
+  to = "/.netlify/functions/households-me"
+  status = 200
+
+[[redirects]]
+  from = "/api/households/me/payments"
+  to = "/.netlify/functions/households-payments"
+  status = 200
+
+[[redirects]]
+  from = "/api/households/me"
+  to = "/.netlify/functions/households-me"
+  status = 200
+
+[[redirects]]
+  from = "/api/households/:id/payments"
+  to = "/.netlify/functions/households-payments?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/api/households/:id"
+  to = "/.netlify/functions/households-detail?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/api/households"
+  to = "/.netlify/functions/households"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/run-monthly-charge"
+  to = "/.netlify/functions/admin-run-charge"
+  status = 200
+
+[[redirects]]
+  from = "/api/payments/:id"
+  to = "/.netlify/functions/payments-detail?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/api/payments"
+  to = "/.netlify/functions/payments"
+  status = 200
+
+[[redirects]]
+  from = "/api/announcements/:id"
+  to = "/.netlify/functions/announcements-detail?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/api/announcements"
+  to = "/.netlify/functions/announcements"
+  status = 200
+
+[[redirects]]
+  from = "/api/prayer-times/today"
+  to = "/.netlify/functions/prayer-times-today"
+  status = 200
+
+[[redirects]]
+  from = "/api/prayer-times/week"
+  to = "/.netlify/functions/prayer-times-week"
+  status = 200
+
+[[redirects]]
+  from = "/api/prayer-times/bulk"
+  to = "/.netlify/functions/prayer-times-bulk"
+  status = 200
+
+[[redirects]]
+  from = "/api/prayer-times"
+  to = "/.netlify/functions/prayer-times"
+  status = 200
+
+[[redirects]]
+  from = "/api/feedback/me"
+  to = "/.netlify/functions/feedback-me"
+  status = 200
+
+[[redirects]]
+  from = "/api/feedback/:id"
+  to = "/.netlify/functions/feedback-detail?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/api/feedback"
+  to = "/.netlify/functions/feedback"
+  status = 200
+
+[[redirects]]
+  from = "/api/reminders/eligible"
+  to = "/.netlify/functions/reminders-eligible"
+  status = 200
+
+[[redirects]]
+  from = "/api/reminders/generate"
+  to = "/.netlify/functions/reminders-generate"
+  status = 200
+
+[[redirects]]
+  from = "/api/reminders"
+  to = "/.netlify/functions/reminders"
+  status = 200
+
+[[redirects]]
+  from = "/api/reports/pending"
+  to = "/.netlify/functions/reports-pending"
+  status = 200
+
+[[redirects]]
+  from = "/api/reports/reconciliation"
+  to = "/.netlify/functions/reports-reconciliation"
+  status = 200
+
+[[redirects]]
+  from = "/api/settings"
+  to = "/.netlify/functions/settings"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-users/:id"
+  to = "/.netlify/functions/admin-users-detail?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin-users"
+  to = "/.netlify/functions/admin-users"
+  status = 200
+
+# --- SPA fallback (must be last) ---
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

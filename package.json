@@ -1,0 +1,23 @@
+{
+  "name": "mosque-management-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mosque Management & Ledger Web Application - Netlify Functions backend",
+  "scripts": {
+    "dev": "netlify dev",
+    "migrate": "node scripts/migrate.js",
+    "seed": "node scripts/seed.js",
+    "build:client": "cd client && npm install && npm run build"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.38.0",
+    "dotenv": "^16.4.5",
+    "pg": "^8.12.0"
+  }
+}
