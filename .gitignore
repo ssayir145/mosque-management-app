@@ -5,6 +5,7 @@ dist/
 build/
 client/dist/
 .netlify/
+.claude/
 *.log
 .DS_Store
 Thumbs.db
